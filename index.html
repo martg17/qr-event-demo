@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Événement 2026</title>
 </head>
 
@@ -10,11 +11,40 @@
 
     <h1>Événement 2026</h1>
 
-    <h2>Jean Dupont</h2>
+    <div id="participant">
+        Chargement...
+    </div>
 
-    <p>Participant</p>
+    <script src="data.js"></script>
 
-    <p>ID : 001</p>
+    <script>
+
+        // Récupère l'ID présent dans l'adresse
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // Cherche la personne correspondante
+        const personne = participants[id];
+
+        const zone = document.getElementById("participant");
+
+        if (personne) {
+
+            zone.innerHTML = `
+                <h2>${personne.prenom} ${personne.nom}</h2>
+                <p>${personne.fonction}</p>
+                <p>ID : ${id}</p>
+            `;
+
+        } else {
+
+            zone.innerHTML = `
+                <p>Participant introuvable.</p>
+            `;
+
+        }
+
+    </script>
 
 </body>
 </html>
