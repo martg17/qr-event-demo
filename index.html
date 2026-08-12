@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Événement 2026</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Événement 2026</h1>
+    <main class="card">
 
-    <div id="participant">
-        Chargement...
-    </div>
+        <div class="event-title">
+            Forum 2026
+        </div>
+
+        <div id="participant">
+            Chargement...
+        </div>
+
+    </main>
 
     <script src="data.js"></script>
 
@@ -30,23 +38,30 @@
         if (personne) {
 
             zone.innerHTML = `
-                <img 
-                    src="${personne.photo}" 
+                <img
+                    class="photo"
+                    src="${personne.photo}"
                     alt="Photo de ${personne.prenom} ${personne.nom}"
-                    width="250"
                 >
 
-                <h2>${personne.prenom} ${personne.nom}</h2>
+                <h1 class="name">
+                    ${personne.prenom} ${personne.nom}
+                </h1>
 
-                <p>${personne.fonction}</p>
+                <p class="role">
+                    ${personne.fonction}
+                </p>
 
-                <p>ID : ${id}</p>
+                <p class="id">
+                    ID ${id}
+                </p>
             `;
 
         } else {
 
             zone.innerHTML = `
-                <p>Participant introuvable.</p>
+                <h2>Participant introuvable</h2>
+                <p>Vérifiez le lien utilisé.</p>
             `;
 
         }
