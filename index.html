@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +20,9 @@
 
     <script>
 
-        // Récupère l'ID présent dans l'adresse
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
 
-        // Cherche la personne correspondante
         const personne = participants[id];
 
         const zone = document.getElementById("participant");
@@ -31,8 +30,16 @@
         if (personne) {
 
             zone.innerHTML = `
+                <img 
+                    src="${personne.photo}" 
+                    alt="Photo de ${personne.prenom} ${personne.nom}"
+                    width="250"
+                >
+
                 <h2>${personne.prenom} ${personne.nom}</h2>
+
                 <p>${personne.fonction}</p>
+
                 <p>ID : ${id}</p>
             `;
 
@@ -47,4 +54,5 @@
     </script>
 
 </body>
+
 </html>
